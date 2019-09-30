@@ -49,13 +49,17 @@ function setup() {
 
   /* ball[2] starts centered at (500,300) and has a diameter of 10.
    * It is green, and starts out moving right with speed 1 and down with speed 3. */
-  ball[2] = new Ball(500, 300, 90, color("green"), 1, 3);
+  ball[2] = new Ball(500, 300, 90, color("green"), 1, 3, color("purple"));
 
   /* =========== TASK 2 =================
  * Create a fourth ball in the array that starts at position (200,400), has a diameter and color of your choice
  * and a random speed (that is, don't give it a starting speed).
  * As you type, VS Code should help you figure out what each argument means - very helpful!
  */
+
+  ball[3] = new Ball(200, 400, 80, color("black"), 2, 3, color("cyan"));
+
+  ball[4] = new Ball(500, 100, 50, color("cyan"));
 }
 
 function draw() {
@@ -77,15 +81,15 @@ function draw() {
    */
 
   if (!mouseIsPressed) {
-    // only move if the mouse is NOT pressed
-    ball[0].move(); // moves the ball, based on its speed.
-    ball[1].move();
-    ball[2].move();
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < ball.length; i++) {
+      ball[i].move();
+    }
   }
-
-  ball[0].draw(); // draw ball1
-  ball[1].draw(); // draw ball2
-  ball[2].draw(); // draw ball3
+  // tslint:disable-next-line: prefer-for-of
+  for (let i = 0; i < ball.length; i++) {
+    ball[i].draw();
+  }
 }
 
 /* ===========  TASK 5 - Exploring Ball Objects =============
