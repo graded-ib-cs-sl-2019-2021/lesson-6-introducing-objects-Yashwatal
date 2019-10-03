@@ -17,6 +17,7 @@
  * Typescript, like many languages, allows us to *import* code from other files.
  */
 import { Ball } from "./modules/ball.js";
+import { Snowflake } from "./modules/Snowflake.js";
 
 /* ========== TASK 1 ==========
  * Hover over the word "Ball" above to learn about the Ball *class*. A class is a way to create
@@ -26,9 +27,10 @@ import { Ball } from "./modules/ball.js";
 
 /** Global array of Ball objects */
 const ball: Ball[] = [];
+const flake: Snowflake[] = [];
 
 function setup() {
-  createCanvas(640, 480); // creates a drawing canvas 640 px wide and 480 tall.
+  createCanvas(740, 680); // creates a drawing canvas 640 px wide and 480 tall.
   strokeWeight(2);
 
   /* ------------CREATING NEW OBJECTS FROM CLASSES--------------
@@ -60,6 +62,16 @@ function setup() {
   ball[3] = new Ball(200, 400, 80, color("black"), 2, 3, color("cyan"));
 
   ball[4] = new Ball(500, 100, 50, color("cyan"));
+
+  ball[5] = new Ball(500, 100, 80, color("purple"));
+
+  ball[6] = new Ball(500, 100, 80, color("purple"));
+
+  ball[7] = new Ball(500, 100, 80, color("purple"));
+
+  flake[0] = new Snowflake(50, 0, 30, color("black"), 20);
+  flake[1] = new Snowflake(150, 0, 60, color("purple"), 5);
+
 }
 
 function draw() {
@@ -89,6 +101,17 @@ function draw() {
   // tslint:disable-next-line: prefer-for-of
   for (let i = 0; i < ball.length; i++) {
     ball[i].draw();
+  }
+
+  if (!mouseIsPressed) {
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < flake.length; i++) {
+      flake[i].move();
+    }
+  }
+  // tslint:disable-next-line: prefer-for-of
+  for (let i = 0; i < flake.length; i++) {
+    flake[i].draw();
   }
 }
 

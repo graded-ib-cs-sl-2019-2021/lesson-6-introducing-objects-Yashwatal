@@ -16,7 +16,7 @@
     "out": true,
     "package.json": true
   },
-  "liveServer.settings.port": 3000,
+  "liveServer.settings.port": 3002,
   "files.autoSave": "onFocusChange",
   "editor.codeActionsOnSave": {
     "source.fixAll.tslint": true
